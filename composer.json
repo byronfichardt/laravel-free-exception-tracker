@@ -1,0 +1,53 @@
+{
+    "name": "byronfichardt/laravel-free-exception-tracker",
+    "description": "Free Exception Tracker for Laravel",
+    "keywords": [
+        "byronfichardt",
+        "laravel-free-exception-tracker"
+    ],
+    "homepage": "https://github.com/byronfichardt/laravel-free-exception-tracker",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Byron Fichardt",
+            "email": ":author_email",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "^8.0|^9.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0|^7.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ByronFichardt\\FreeExceptionTracker\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ByronFichardt\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ByronFichardt\\FreeExceptionTracker\\FreeEt4ServiceProvider"
+            ],
+            "aliases": {
+                "Tracker": "ByronFichardt\\FreeExceptionTracker\\Facade\\Tracker"
+            }
+        }
+    }
+}
