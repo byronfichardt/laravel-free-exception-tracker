@@ -1,10 +1,7 @@
-# Very short description of the package
+# Laravel Open Exception Tracker
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor/:package_name.svg?style=flat-square)](https://packagist.org/packages/:vendor/:package_name)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor/:package_name.svg?style=flat-square)](https://packagist.org/packages/:vendor/:package_name)
-![GitHub Actions](https://github.com/:vendor/:package_name/actions/workflows/main.yml/badge.svg)
-
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+This is the package required to track exceptions on your Laravel Application.
+It will send the exception to the Open Exception Tracker Server.
 
 ## Installation
 
@@ -14,38 +11,27 @@ You can install the package via composer:
 composer require byronfichardt/laravel-free-exception-tracker
 ```
 
+You should publish the config file with:
+```bash
+php artisan vendor:publish --provider="ByronFichardt\LaravelFreeExceptionTracker\LaravelFreeExceptionTrackerServiceProvider" --tag="config"
+```
+
 ## Usage
 
+In the Hanler.php file, add the following to the report method:
+
 ```php
-// Usage description here
+Tracker::report($exception);
 ```
-
-### Testing
-
-```bash
-composer test
-```
-
-### Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-### Security
-
-If you discover any security related issues, please email :author_email instead of using the issue tracker.
 
 ## Credits
 
--   [:author_name](https://github.com/:vendor)
+-   [Byron Fichardt](https://github.com/byronfichardt)
 -   [All Contributors](../../contributors)
 
 ## License
 
-The :license_shortname. Please see [License File](LICENSE.md) for more information.
+Open Exception Tracker is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)..
 
 ## Laravel Package Boilerplate
 
