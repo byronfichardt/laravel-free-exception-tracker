@@ -2,12 +2,14 @@
 
 namespace ByronFichardt\FreeExceptionTracker;
 
+use ByronFichardt\FreeExceptionTracker\Exception\Exception;
 use Illuminate\Support\Facades\Http;
 
 class LaravelTracker
 {
     public function report($e): void
     {
+        $exception = (new Exception($e))->toArray();
         Http::withHeaders([
             'X-Service-ID' => config('freeEt4.service_id'),
         ])
@@ -16,16 +18,9 @@ class LaravelTracker
             ->asJson()
             ->baseUrl(config('freeEt4.base_url'))
             ->post('/api/exception', [
-                'exception' => [
-                    'message' => $e->getMessage(),
-                    'code' => $e->getCode(),
-                    'file' => $e->getFile(),
-                    'line' => $e->getLine(),
-                    'trace' => $e->getTrace(),
-                    'payload' => request()->all(),
-                ],
+                'exception' => $exception,
+                'payload' => request()->all(),
                 'environment' => env('APP_ENV'),
-                'headers' => request()->headers->all(),
             ]);
     }
 }
