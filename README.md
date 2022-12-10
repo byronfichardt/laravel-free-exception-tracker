@@ -1,4 +1,4 @@
-# Laravel Open Exception Tracker
+# Laravel Watcher
 
 This is the package required to track exceptions on your Laravel Application.
 It will send the exception to the Open Exception Tracker Server.
