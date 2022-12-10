@@ -13,7 +13,7 @@ composer require byronfichardt/laravel-watcher
 
 You should publish the config file with:
 ```bash
-php artisan vendor:publish --provider="ByronFichardt\LaravelFreeExceptionTracker\LaravelFreeExceptionTrackerServiceProvider" --tag="config"
+php artisan vendor:publish --provider="ByronFichardt\Watcher\WatcherServiceProvider" --tag="config"
 ```
 
 ## Usage
