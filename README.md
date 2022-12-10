@@ -1,7 +1,7 @@
 # Laravel Watcher
 
-This is the package required to track exceptions on your Laravel Application.
-It will send the exception to the Open Exception Tracker Server.
+This is the package need by the Watcher app to watch for exceptions in your Laravel Application.
+Exceptions will be sent to the Watcher Server.
 
 ## Installation
 
@@ -39,7 +39,7 @@ FREE_ET4_SERVICE_ID=
 
 ## License
 
-Open Exception Tracker is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)..
+Watcher is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)..
 
 ## Laravel Package Boilerplate
 
