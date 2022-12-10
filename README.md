@@ -18,7 +18,7 @@ php artisan vendor:publish --provider="ByronFichardt\LaravelFreeExceptionTracker
 
 ## Usage
 
-In the Hanler.php file, add the following to the report method:
+In the Handler.php file, add the following to the report method:
 
 ```php
 Tracker::report($exception);
