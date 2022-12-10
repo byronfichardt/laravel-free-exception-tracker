@@ -1,6 +1,6 @@
 <?php
 
-namespace ByronFichardt\FreeExceptionTracker\Exception\StackTrace;
+namespace ByronFichardt\Watcher\Exception\StackTrace;
 
 class RelativePathCreator
 {

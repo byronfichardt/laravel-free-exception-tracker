@@ -26,7 +26,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ByronFichardt\\FreeExceptionTracker\\": "src"
+            "ByronFichardt\\Watcher\\": "src"
         }
     },
     "autoload-dev": {
@@ -44,10 +44,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ByronFichardt\\FreeExceptionTracker\\FreeEt4ServiceProvider"
+              "WatcherServiceProvider"
             ],
             "aliases": {
-                "Tracker": "ByronFichardt\\FreeExceptionTracker\\Facade\\Tracker"
+                "Tracker": "ByronFichardt\\Watcher\\Facade\\Tracker"
             }
         }
     }

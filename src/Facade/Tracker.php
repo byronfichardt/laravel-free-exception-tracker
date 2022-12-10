@@ -1,8 +1,8 @@
 <?php
 
-namespace ByronFichardt\FreeExceptionTracker\Facade;
+namespace ByronFichardt\Watcher\Facade;
 
-use ByronFichardt\FreeExceptionTracker\LaravelTracker;
+use ByronFichardt\Watcher\LaravelTracker;
 use Illuminate\Support\Facades\Facade;
 
 class Tracker extends Facade

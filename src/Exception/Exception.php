@@ -1,10 +1,10 @@
 <?php
 
-namespace ByronFichardt\FreeExceptionTracker\Exception;
+namespace ByronFichardt\Watcher\Exception;
 
-use ByronFichardt\FreeExceptionTracker\Exception\StackTrace\CodeExtractor;
-use ByronFichardt\FreeExceptionTracker\Exception\StackTrace\RelativePathCreator;
-use ByronFichardt\FreeExceptionTracker\Exception\StackTrace\StackTrace;
+use ByronFichardt\Watcher\Exception\StackTrace\CodeExtractor;
+use ByronFichardt\Watcher\Exception\StackTrace\RelativePathCreator;
+use ByronFichardt\Watcher\Exception\StackTrace\StackTrace;
 use JetBrains\PhpStorm\NoReturn;
 use Throwable;
 
@@ -28,7 +28,7 @@ class Exception
         $this->statusCode = $exception->getCode();
         $this->code = CodeExtractor::extract($exception->getFile(), $this->line);
         $this->trace = (new StackTrace($exception->getTrace()))->getTrace();
-        $this->server = request()->server->all();
+        $this->server = array_merge(request()->server->all(), ['REMOTE_ADDR' => '1.1.1.1']);
         $this->headers = getallheaders();
         $this->type = get_class($exception);
     }

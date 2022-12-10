@@ -1,8 +1,8 @@
 <?php
 
-namespace ByronFichardt\FreeExceptionTracker;
+namespace ByronFichardt\Watcher;
 
-use ByronFichardt\FreeExceptionTracker\Exception\Exception;
+use ByronFichardt\Watcher\Exception\Exception;
 use Illuminate\Support\Facades\Http;
 
 class LaravelTracker

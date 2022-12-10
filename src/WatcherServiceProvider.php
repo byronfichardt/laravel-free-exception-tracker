@@ -1,10 +1,10 @@
 <?php
 
-namespace ByronFichardt\FreeExceptionTracker;
+namespace ByronFichardt\Watcher;
 
 use Illuminate\Support\ServiceProvider;
 
-class FreeEt4ServiceProvider extends ServiceProvider
+class WatcherServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
