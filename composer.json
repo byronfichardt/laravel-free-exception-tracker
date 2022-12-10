@@ -1,11 +1,11 @@
 {
-    "name": "byronfichardt/laravel-free-exception-tracker",
+    "name": "byronfichardt/laravel-watcher",
     "description": "Free Exception Tracker for Laravel",
     "keywords": [
         "byronfichardt",
-        "laravel-free-exception-tracker"
+        "laravel-watcher"
     ],
-    "homepage": "https://github.com/byronfichardt/laravel-free-exception-tracker",
+    "homepage": "https://github.com/byronfichardt/laravel-watcher",
     "license": "MIT",
     "type": "library",
     "authors": [
