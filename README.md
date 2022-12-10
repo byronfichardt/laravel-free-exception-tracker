@@ -8,7 +8,7 @@ It will send the exception to the Open Exception Tracker Server.
 You can install the package via composer:
 
 ```bash
-composer require byronfichardt/laravel-free-exception-tracker
+composer require byronfichardt/laravel-watcher
 ```
 
 You should publish the config file with:
@@ -22,6 +22,14 @@ In the Hanler.php file, add the following to the report method:
 
 ```php
 Tracker::report($exception);
+```
+
+Then you need to add the following to your .env file:
+
+```bash
+FREE_ET4_TOKEN=
+FREE_ET4_BASE_URL=
+FREE_ET4_SERVICE_ID=
 ```
 
 ## Credits
