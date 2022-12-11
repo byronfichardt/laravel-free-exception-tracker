@@ -28,7 +28,7 @@ class Exception
         $this->statusCode = $exception->getCode();
         $this->code = CodeExtractor::extract($exception->getFile(), $this->line);
         $this->trace = (new StackTrace($exception->getTrace()))->getTrace();
-        $this->server = array_merge(request()->server->all(), ['REMOTE_ADDR' => '1.1.1.1']);
+        $this->server = request()->server->all();
         $this->headers = getallheaders();
         $this->type = get_class($exception);
     }

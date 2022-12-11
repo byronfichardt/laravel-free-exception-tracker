@@ -18,12 +18,12 @@ class TraceItem
 
     public function __construct($traceItem)
     {
-        $this->file = RelativePathCreator::create($traceItem['file']);
-        $this->line = $traceItem['line'];
+        $this->file = RelativePathCreator::create($traceItem['file'] ?? '');
+        $this->line = $traceItem['line'] ?? '';
         $this->method = $traceItem['function'];
-        $this->isInternal = Str::contains($traceItem['file'], 'vendor');
+        $this->isInternal = Str::contains($traceItem['file'] ?? '', 'vendor');
 
-        if (isset($traceItem['class'])) {
+        if (isset($traceItem['class']) && isset($traceItem['file'])) {
             $this->code = CodeExtractor::extract($traceItem['file'], $this->line);
         }
     }
