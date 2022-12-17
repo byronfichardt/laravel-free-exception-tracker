@@ -7,6 +7,7 @@ class PayloadCleaner
      public static function clean(array $payload): array
      {
          $gdprCompliant = config('freeEt4.gdpr.compliant');
+         $itemsToClean = [];
 
          if($gdprCompliant) {
              $itemsToClean = config('freeEt4.gdpr.items');
