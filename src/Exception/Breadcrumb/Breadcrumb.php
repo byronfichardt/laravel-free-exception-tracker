@@ -14,7 +14,7 @@ class Breadcrumb
     public function __construct(QueryExecuted $query)
     {
         $this->sql = $query->sql;
-        if (config('freeEt4.gdpr.compliant')) {
+        if (!config('freeEt4.gdpr.compliant')) {
             $this->bindings = $query->bindings;
         }
         $this->time = $query->time;
