@@ -23,7 +23,7 @@ class WatcherServiceProvider extends ServiceProvider
 
         DB::listen(function ($query) {
             $breadcrumb = new Breadcrumb($query);
-            app('breadcrumbList')->add($breadcrumb);
+            app('breadcrumbList')->add($breadcrumb->toArray());
         });
     }
 

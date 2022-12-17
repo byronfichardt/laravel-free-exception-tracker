@@ -11,7 +11,7 @@ class BreadcrumbList
         $this->breadcrumbs = [];
     }
 
-    public function add(Breadcrumb $breadcrumb): void
+    public function add(array $breadcrumb): void
     {
         $this->breadcrumbs[] = $breadcrumb;
     }
