@@ -12,12 +12,12 @@ class PayloadCleaner
          if($gdprCompliant) {
              $itemsToClean = config('freeEt4.gdpr.items');
          }
-         return array_map(function($item) use ($itemsToClean) {
-             $normalizedItem = strtolower($item);
-             if (in_array($normalizedItem, $itemsToClean)) {
-                 return '**********';
+         collect($payload)->each(function ($value, $key) use (&$payload, $itemsToClean) {
+             if(in_array($key, $itemsToClean)) {
+                 $payload[$key] = '********';
              }
-             return $item;
-         }, $payload);
+         });
+
+         return $payload;
      }
 }
