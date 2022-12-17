@@ -19,6 +19,7 @@ class Exception
     protected array $server;
     protected string $type;
     protected array $headers;
+    protected array $breadcrumbList = [];
 
     #[NoReturn] public function __construct(Throwable $exception)
     {
@@ -31,6 +32,7 @@ class Exception
         $this->server = request()->server->all();
         $this->headers = getallheaders();
         $this->type = get_class($exception);
+        $this->breadcrumbList = app('breadcrumbList')->getBreadcrumbs();
     }
 
     public function toArray(): array
@@ -45,6 +47,7 @@ class Exception
             'server' => $this->server,
             'headers' => $this->headers,
             'type' => $this->type,
+            'breadcrumbList' => $this->breadcrumbList,
         ];
     }
 

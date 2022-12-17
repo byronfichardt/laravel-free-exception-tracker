@@ -2,6 +2,9 @@
 
 namespace ByronFichardt\Watcher;
 
+use ByronFichardt\Watcher\Exception\Breadcrumb\Breadcrumb;
+use ByronFichardt\Watcher\Exception\Breadcrumb\BreadcrumbList;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 
 class WatcherServiceProvider extends ServiceProvider
@@ -17,6 +20,11 @@ class WatcherServiceProvider extends ServiceProvider
                 __DIR__.'/../config/config.php' => config_path('freeEt4.php'),
             ], 'config');
         }
+
+        DB::listen(function ($query) {
+            $breadcrumb = new Breadcrumb($query);
+            app('breadcrumbList')->add($breadcrumb);
+        });
     }
 
     /**
@@ -28,5 +36,10 @@ class WatcherServiceProvider extends ServiceProvider
         $this->app->singleton('tracker', function () {
             return new LaravelTracker();
         });
+
+        $this->app->singleton('breadcrumbList', function () {
+            return new BreadcrumbList();
+        });
+
     }
 }
