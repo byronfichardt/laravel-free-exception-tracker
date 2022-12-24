@@ -1,5 +1,5 @@
 # Laravel Watcher
-![Tests](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+![Tests](https://github.com/byronfichardt/laravel-watcher/actions/workflows/main.yml/badge.svg)
 
 This is the package need by the [Watcher app](https://github.com/byronfichardt/Watcher) to watch for exceptions in your Laravel Application.
 Exceptions will be sent to the Watcher Server.
