@@ -4,20 +4,28 @@ namespace ByronFichardt\Watcher\Exception\Payload;
 
 class PayloadCleaner
 {
-     public static function clean(array $payload): array
-     {
-         $gdprCompliant = config('freeEt4.gdpr.compliant');
-         $itemsToClean = [];
+    protected array $itemsToClean = [];
 
-         if($gdprCompliant) {
-             $itemsToClean = config('freeEt4.gdpr.items');
-         }
-         collect($payload)->each(function ($value, $key) use (&$payload, $itemsToClean) {
-             if(in_array($key, $itemsToClean)) {
-                 $payload[$key] = '********';
-             }
-         });
+    public function __construct()
+    {
+        $gdprCompliant = config('watcher.gdpr.compliant');
 
-         return $payload;
-     }
+        if($gdprCompliant) {
+            $this->itemsToClean = config('watcher.gdpr.items', []);
+        }
+    }
+
+    public function clean(array $payload): array
+    {
+        array_walk_recursive($payload, function (&$item, $key)
+        {
+            if(in_array($key, $this->itemsToClean)) {
+                $item = '********';
+            }
+
+            return $item;
+        });
+
+        return $payload;
+    }
 }

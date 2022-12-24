@@ -2,10 +2,10 @@
 
 namespace ByronFichardt\Watcher\Facade;
 
-use ByronFichardt\Watcher\LaravelTracker;
+use ByronFichardt\Watcher\LaravelWatcher;
 use Illuminate\Support\Facades\Facade;
 
-class Tracker extends Facade
+class Watcher extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -14,6 +14,6 @@ class Tracker extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return LaravelTracker::class;
+        return LaravelWatcher::class;
     }
 }

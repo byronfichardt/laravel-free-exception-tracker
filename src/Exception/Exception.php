@@ -50,12 +50,4 @@ class Exception
             'breadcrumbList' => $this->breadcrumbList,
         ];
     }
-
-    /**
-     * @return array
-     */
-    public function getHeaders(): array
-    {
-        return $this->headers;
-    }
 }

@@ -17,7 +17,7 @@ class WatcherServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             // Publishing the config.
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('freeEt4.php'),
+                __DIR__.'/../config/config.php' => config_path('watcher.php'),
             ], 'config');
         }
 
@@ -33,13 +33,16 @@ class WatcherServiceProvider extends ServiceProvider
     public function register()
     {
         // Register the main class to use with the facade
-        $this->app->singleton('tracker', function () {
-            return new LaravelTracker();
+        $this->app->singleton('watcher', function () {
+            return new LaravelWatcher();
         });
 
         $this->app->singleton('breadcrumbList', function () {
             return new BreadcrumbList();
         });
 
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/config.php', 'watcher'
+        );
     }
 }

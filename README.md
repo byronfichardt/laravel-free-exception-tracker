@@ -21,15 +21,15 @@ php artisan vendor:publish --provider="ByronFichardt\Watcher\WatcherServiceProvi
 In the Handler.php file, add the following to the report method:
 
 ```php
-Tracker::report($exception);
+Watcher::report($exception);
 ```
 
 Then you need to add the following to your .env file:
 
 ```bash
-FREE_ET4_TOKEN=
-FREE_ET4_BASE_URL=
-FREE_ET4_SERVICE_ID=
+WATCHER_TOKEN=
+WATCHER_BASE_URL=
+WATCHER_SERVICE_ID=
 ```
 
 ## Credits
