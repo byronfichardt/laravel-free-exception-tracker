@@ -1,6 +1,6 @@
 # Laravel Watcher
 
-This is the package need by the Watcher app to watch for exceptions in your Laravel Application.
+This is the package need by the [Watcher app](https://github.com/byronfichardt/Watcher) to watch for exceptions in your Laravel Application.
 Exceptions will be sent to the Watcher Server.
 
 ## Installation
