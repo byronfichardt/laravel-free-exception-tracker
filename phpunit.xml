@@ -18,7 +18,6 @@
     <testsuites>
         <testsuite name="tests">
             <directory suffix="Test.php">tests</directory>
-
         </testsuite>
     </testsuites>
     <php>
