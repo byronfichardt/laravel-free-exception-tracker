@@ -27,7 +27,7 @@ Watcher::report($exception);
 
 Then you need to add the following to your .env file:
 
-```bash
+```env
 WATCHER_TOKEN=
 WATCHER_BASE_URL=
 WATCHER_SERVICE_ID=
