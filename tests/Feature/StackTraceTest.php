@@ -14,7 +14,7 @@ class StackTraceTest extends TestCase
         $stackTrace = new StackTrace($exception->getTrace());
 
         $this->assertTrue(is_array($stackTrace->getTrace()));
-        $this->assertEquals(Arr::last(explode('\\', $stackTrace->getTrace()[0]['file'])), 'TestCase.php');
+        $this->assertEquals(Arr::last(explode('/', $stackTrace->getTrace()[0]['file'])), 'TestCase.php');
         $this->assertEquals($stackTrace->getTrace()[0]['method'], 'testStackTrace');
     }
 }

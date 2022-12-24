@@ -16,7 +16,7 @@ class TraceItemTest extends TestCase
             'function' => 'testTraceItem',
         ]);
 
-        $this->assertEquals('TraceItemTest.php', Arr::last(explode('\\', $traceItem->toArray()['file'])));
+        $this->assertEquals('TraceItemTest.php', Arr::last(explode('/', $traceItem->toArray()['file'])));
         $this->assertEquals(12, $traceItem->toArray()['line']);
         $this->assertEquals('testTraceItem', $traceItem->toArray()['method']);
     }
@@ -31,7 +31,7 @@ class TraceItemTest extends TestCase
 
         $this->assertEquals('SomeClass.php',  Arr::last(explode('/', $traceItem->toArray()['file'])));
         $this->assertEquals(12, $traceItem->toArray()['line']);
-        $this->assertEquals('testTraceItem', Arr::last(explode('\\', $traceItem->toArray()['method'])));
+        $this->assertEquals('testTraceItem', Arr::last(explode('/', $traceItem->toArray()['method'])));
         $this->assertEquals(true, $traceItem->toArray()['isInternal']);
     }
 
@@ -44,7 +44,7 @@ class TraceItemTest extends TestCase
             'class' => 'ByronFichardt\Watcher\tests\Feature\TraceItemTest',
         ]);
 
-        $this->assertEquals('TraceItemTest.php',  Arr::last(explode('\\', $traceItem->toArray()['file'])));
+        $this->assertEquals('TraceItemTest.php',  Arr::last(explode('/', $traceItem->toArray()['file'])));
         $this->assertEquals(12, $traceItem->toArray()['line']);
         $this->assertEquals('testTraceItem', $traceItem->toArray()['method']);
         $this->assertEquals($traceItem->toArray()['code'], json_encode($this->getcode()));
