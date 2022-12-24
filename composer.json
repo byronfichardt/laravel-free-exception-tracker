@@ -17,6 +17,7 @@
     ],
     "require": {
         "php": "^8.0",
+        "guzzlehttp/guzzle": "^7.5",
         "illuminate/support": "^8.0|^9.0"
     },
     "require-dev": {
@@ -30,7 +31,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "ByronFichardt\\Tests\\": "tests"
+            "ByronFichardt\\Watcher\\tests\\": "tests"
         }
     },
     "scripts": {
@@ -46,7 +47,7 @@
                 "ByronFichardt\\Watcher\\WatcherServiceProvider"
             ],
             "aliases": {
-                "Tracker": "ByronFichardt\\Watcher\\Facade\\Tracker"
+                "Watcher": "Watcher"
             }
         }
     }

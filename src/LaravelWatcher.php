@@ -6,7 +6,7 @@ use ByronFichardt\Watcher\Exception\Exception;
 use ByronFichardt\Watcher\Exception\Payload\PayloadCleaner;
 use Illuminate\Support\Facades\Http;
 
-class LaravelTracker
+class LaravelWatcher
 {
     public function report($e): void
     {
@@ -14,16 +14,16 @@ class LaravelTracker
         $payload = (new PayloadCleaner())->clean(request()->all());
 
         Http::withHeaders([
-            'X-Service-ID' => config('freeEt4.service_id'),
+            'X-Service-ID' => config('watcher.service_id'),
         ])
-            ->withToken(config('freeEt4.token'))
+            ->withToken(config('watcher.token'))
             ->acceptJson()
             ->asJson()
-            ->baseUrl(config('freeEt4.base_url'))
+            ->baseUrl(config('watcher.base_url'))
             ->post('/api/exception', [
                 'exception' => $exception,
                 'payload' => $payload,
-                'environment' => env('APP_ENV'),
+                'environment' => config('app.env'),
             ]);
     }
 }

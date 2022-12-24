@@ -7,14 +7,15 @@ use Illuminate\Database\Events\QueryExecuted;
 class Breadcrumb
 {
     protected string $sql;
-    protected array $bindings = [];
+    protected ?array $bindings = null;
     protected float $time;
     protected ?string $connection;
 
     public function __construct(QueryExecuted $query)
     {
+        $gdprCompliant = config('watcher.gdpr.compliant');
         $this->sql = $query->sql;
-        if (!config('freeEt4.gdpr.compliant')) {
+        if (! $gdprCompliant) {
             $this->bindings = $query->bindings;
         }
         $this->time = $query->time;
@@ -55,12 +56,10 @@ class Breadcrumb
 
     public function toArray(): array
     {
-        $data = ['sql' => $this->sql];
-
-        foreach ($this->bindings as $index => $binding) {
-            $data["binding"][$index] = $binding;
+        $data['sql'] = $this->sql;
+        if (!config('watcher.gdpr.compliant')) {
+            $data['bindings'] = $this->bindings;
         }
-
         $data['time'] = "{$this->time}ms";
         $data['connection'] = $this->connection;
 
